@@ -6,9 +6,9 @@ dir_configs = configs
 dir_buildroot = buildroot
 
 bootstrap:
-	git clone https://git.buildroot.net/buildroot
-	git pull
-	make -C $(dir_buildroot) stm32f769i-disco
+	git clone $(url_buildroot)
+	#git pull
+	make -C $(dir_buildroot) stm32f429_disco_defconfig
 	#cp $(dir_configs)/buildroot $(dir_buildroot)/.config
 
 build:
