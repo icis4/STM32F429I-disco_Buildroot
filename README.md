@@ -29,8 +29,11 @@ U-Boot is configured to run the kernel in XIP mode directly from the internal fl
 
 Changelog
 ---------
-
-* next
+* icis4
+  * Latest Buildroot from git repository
+  * use default confgig from Buildroot
+  
+* next 
   * Buildroot 2018.02
   * GCC 6.4.0
   * AFBoot-STM32 0.1
