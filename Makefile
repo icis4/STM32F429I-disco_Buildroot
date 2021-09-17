@@ -1,4 +1,4 @@
-url_buildroot = https://buildroot.org/downloads/buildroot-2021.02.5.tar.gz
+url_buildroot = https://git.buildroot.net/buildroot
 archive_buildroot = buildroot.tar.gz
 system_image = stm32f769i-disco_system.uImage
 dir_download = downloads
@@ -6,11 +6,10 @@ dir_configs = configs
 dir_buildroot = buildroot
 
 bootstrap:
-	mkdir -p $(dir_download)
-	mkdir -p $(dir_buildroot)
-	wget -O $(dir_download)/$(archive_buildroot) $(url_buildroot)
-	tar zxvf $(dir_download)/$(archive_buildroot) -C $(dir_buildroot) --strip-components=1
-	cp $(dir_configs)/buildroot $(dir_buildroot)/.config
+	git clone https://git.buildroot.net/buildroot
+	git pull
+	make -C $(dir_buildroot) stm32f769i-disco
+	#cp $(dir_configs)/buildroot $(dir_buildroot)/.config
 
 build:
 	make -j10 -C $(dir_buildroot)
